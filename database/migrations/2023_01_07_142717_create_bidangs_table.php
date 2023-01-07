@@ -13,8 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('bidangs', function (Blueprint $table) {
+        Schema::create('bidang', function (Blueprint $table) {
             $table->id();
+            $table->BigInteger('waka_id')->unsigned();
+            $table->foreign('waka_id')->references('id')->on('waka')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
+            $table->string('deskripsi');
             $table->timestamps();
         });
     }

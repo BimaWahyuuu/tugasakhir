@@ -13,8 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tanggapans', function (Blueprint $table) {
+        Schema::create('tanggapan', function (Blueprint $table) {
             $table->id();
+            $table->BigInteger('saran_id')->unsigned();
+            $table->foreign('saran_id')->references('id')->on('saran')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
+            $table->BigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
+            $table->string('isi');
             $table->timestamps();
         });
     }

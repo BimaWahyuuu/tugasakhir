@@ -13,8 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('wakas', function (Blueprint $table) {
+        Schema::create('waka', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
+            // $table->string('nama');
+            // $table->string('email');
+            // $table->string('password');
+            $table->string('jabatan');
             $table->timestamps();
         });
     }
