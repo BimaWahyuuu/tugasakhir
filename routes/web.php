@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+Route::get('/masuk', [LoginController::class, 'main'])->name('masuk')->middleware('guest');
+Route::get('/masuk', [LoginController::class, 'main'])->name('masuk')->middleware('guest');
+Route::post('/masuk', [LoginController::class, 'login'])->name('masuk.login')->middleware('guest');
+
+Route::get('/test', function(){
+    return view('testIntegrasi');
 });
