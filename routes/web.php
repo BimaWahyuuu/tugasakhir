@@ -23,5 +23,5 @@ Route::get('/masuk', [LoginController::class, 'main'])->name('masuk')->middlewar
 Route::post('/masuk', [LoginController::class, 'login'])->name('masuk.login')->middleware('guest');
 
 Route::get('/test', function(){
-    return view('testIntegrasi');
+    return view('admin.testChild');
 });
