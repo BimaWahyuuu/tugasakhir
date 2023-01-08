@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DashboardController;
 
 
 /*
@@ -25,3 +26,5 @@ Route::post('/masuk', [LoginController::class, 'login'])->name('masuk.login')->m
 Route::get('/test', function(){
     return view('admin.testChild');
 });
+
+Route::get('/admin', [DashboardController::class, 'main']);
