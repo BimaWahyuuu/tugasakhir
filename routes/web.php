@@ -24,7 +24,8 @@ Route::get('/masuk', [LoginController::class, 'main'])->name('masuk')->middlewar
 Route::post('/masuk', [LoginController::class, 'login'])->name('masuk.login')->middleware('guest');
 
 Route::get('/test', function(){
-    return view('admin.testChild');
+    return view('testIntegrasi');
 });
 
 Route::get('/admin', [DashboardController::class, 'main']);
+Route::get('/admins', [DashboardController::class, 'admin']);
