@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\WakaController;
 
 
 /*
@@ -30,4 +31,5 @@ Route::get('/test', function(){
 
 Route::get('/admin', [DashboardController::class, 'main']);
 Route::get('/admins', [DashboardController::class, 'admin']);
-Route::resource('kategori', KategoriController::class);
+Route::resource('admin/kategori', KategoriController::class);
+Route::resource('admin/waka', WakaController::class);
