@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DashboardController;
 
 
 /*
@@ -23,5 +24,7 @@ Route::get('/masuk', [LoginController::class, 'main'])->name('masuk')->middlewar
 Route::post('/masuk', [LoginController::class, 'login'])->name('masuk.login')->middleware('guest');
 
 Route::get('/test', function(){
-    return view('testIntegrasi');
+    return view('admin.testChild');
 });
+
+Route::get('/admin', [DashboardController::class, 'main']);
