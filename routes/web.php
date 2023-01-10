@@ -21,6 +21,11 @@ use App\Http\Controllers\WakaController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/index', function(){
+    return view('user.index');
+});
+
 Route::get('/masuk', [LoginController::class, 'main'])->name('masuk')->middleware('guest');
 Route::get('/masuk', [LoginController::class, 'main'])->name('masuk')->middleware('guest');
 Route::post('/masuk', [LoginController::class, 'login'])->name('masuk.login')->middleware('guest');
