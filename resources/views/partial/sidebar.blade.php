@@ -76,7 +76,7 @@
                 </a>
               </li> --}}
           <li>
-            <a class="nav-link {{ (request()->is('admin/add/kategori')) ? 'aktif':'' }}" href="/admin/add/kategori">
+            <a class="nav-link {{ (request()->is('kategori/create')) ? 'aktif':'' }}" href="/kategori/create">
               <i class="fas fa-tags"></i>Kategori </a>
           </li>
           <li>
