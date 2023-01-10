@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LandingController;
 
 
 /*
@@ -16,14 +17,19 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/index', function(){
     return view('user.index');
 });
 
+Route::get('/about', function(){
+    return view('user.about');
+});
+
+Route::get('/home', [LandingController::class, 'main']);
 Route::get('/masuk', [LoginController::class, 'main'])->name('masuk')->middleware('guest');
 Route::get('/masuk', [LoginController::class, 'main'])->name('masuk')->middleware('guest');
 Route::post('/masuk', [LoginController::class, 'login'])->name('masuk.login')->middleware('guest');
