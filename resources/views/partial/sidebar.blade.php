@@ -56,11 +56,11 @@
               </a>
             </li> --}}
           <li>
-            <a class="nav-link {{ (request()->is('admin/list/kategori')) ? 'aktif':'' }}" href="/admin/list/kategori">
+            <a class="nav-link {{ (request()->is('admin/kategori')) ? 'aktif':'' }}" href="/admin/kategori">
               <i class="fas fa-tags"></i>Kategori </a>
           </li>
           <li>
-            <a class="nav-link {{ (request()->is('admin/list/waka')) ? 'aktif':'' }}" href="/admin/list/waka">
+            <a class="nav-link {{ (request()->is('admin/waka/')) ? 'aktif':'' }}" href="/admin/waka/">
               <i class="fas fa-user-graduate"></i>Waka </a>
           </li>
         </ul>
@@ -76,11 +76,11 @@
                 </a>
               </li> --}}
           <li>
-            <a class="nav-link {{ (request()->is('admin/add/kategori')) ? 'aktif':'' }}" href="/admin/add/kategori">
+            <a class="nav-link {{ (request()->is('admin/kategori/create')) ? 'aktif':'' }}" href="/admin/kategori/create">
               <i class="fas fa-tags"></i>Kategori </a>
           </li>
           <li>
-            <a class="nav-link {{ (request()->is('admin/add/waka')) ? 'aktif':'' }}" href="/admin/add/waka">
+            <a class="nav-link {{ (request()->is('admin/waka/create')) ? 'aktif':'' }}" href="/admin/waka/create">
               <i class="fas fa-user-graduate"></i>Waka </a>
           </li>
         </ul>
