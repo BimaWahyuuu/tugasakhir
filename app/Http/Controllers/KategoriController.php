@@ -23,7 +23,11 @@ class KategoriController extends Controller
      */
     public function create()
     {
+<<<<<<< HEAD
         return view('admin.Add.addKategori');
+=======
+        return view('admin.Add.kategori');
+>>>>>>> eb1b46c5ad45cb719562927b65ef76e753e08194
     }
 
     /**
