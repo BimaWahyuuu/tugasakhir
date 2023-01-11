@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingController;
-
+use App\Http\Controllers\WakaController;
+use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\PesanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,12 +32,14 @@ Route::get('/about', function(){
 });
 
 Route::get('/home', [LandingController::class, 'main']);
+
+
 Route::get('/masuk', [LoginController::class, 'main'])->name('masuk')->middleware('guest');
 Route::get('/masuk', [LoginController::class, 'main'])->name('masuk')->middleware('guest');
 Route::post('/masuk', [LoginController::class, 'login'])->name('masuk.login')->middleware('guest');
 
-Route::get('/test', function(){
-    return view('admin.testChild');
-});
+Route::resource('admin/waka', WakaController::class);
+Route::resource('admin/kategori', KategoriController::class);
+Route::resource('admin/pesan', PesanController::class);
 
 Route::get('/admin', [DashboardController::class, 'main']);
