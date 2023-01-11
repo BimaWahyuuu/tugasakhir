@@ -45,3 +45,4 @@ Route::resource('admin/kategori', KategoriController::class);
 Route::resource('admin/pesan', PesanController::class);
 
 Route::get('/admin', [DashboardController::class, 'main']);
+Route::get('/admin/admin', [DashboardController::class, 'admin']);

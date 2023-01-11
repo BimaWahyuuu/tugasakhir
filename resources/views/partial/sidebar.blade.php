@@ -36,7 +36,7 @@
               <i class="fas fa-envelope"></i>Pesan Masuk </a>
           </li><li>
             <a class="nav-link {{ (request()->is('admin/pesan/history')) ? 'aktif':'' }}" href="/admin/pesan/history/">
-              <i class="fas fa-history"></i>Histori</a>
+              <i class="fas fa-history"></i>History</a>
           </li>
           {{-- <li>
             <a class="nav-link {{ (request()->is('admin/pesan/diterima')) ? 'aktif':'' }}" href="/admin/pesan/diterima">
