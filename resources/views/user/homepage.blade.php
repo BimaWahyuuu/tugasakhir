@@ -3,7 +3,7 @@
     <!-- Masthead-->
     @include('user.masthead')
     <!-- About-->
-    @include('user.about')
+    @include('user.saran')
     <!-- Services-->
     @include('user.services')
     <!-- Portfolio-->

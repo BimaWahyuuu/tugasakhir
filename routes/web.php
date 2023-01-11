@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingController;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,15 +22,16 @@ use App\Http\Controllers\LandingController;
 //     return view('welcome');
 // });
 
-Route::get('/index', function(){
-    return view('user.index');
+Route::get('/ceksaran', function(){
+    return view('user.ceksaran');
 });
 
-Route::get('/about', function(){
-    return view('user.about');
-});
+// Route::get('/about', function(){
+//     return view('user.about');
+// });
 
 Route::get('/home', [LandingController::class, 'main']);
+Route::get('/saran', [LandingController::class, 'user']);
 Route::get('/masuk', [LoginController::class, 'main'])->name('masuk')->middleware('guest');
 Route::get('/masuk', [LoginController::class, 'main'])->name('masuk')->middleware('guest');
 Route::post('/masuk', [LoginController::class, 'login'])->name('masuk.login')->middleware('guest');
