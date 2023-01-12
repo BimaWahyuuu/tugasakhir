@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Waka;
 
 class WakaController extends Controller
 {
@@ -14,9 +13,7 @@ class WakaController extends Controller
      */
     public function index()
     {
-        $wakas = Waka::get();
-        // ddd($wakas);
-        return view('admin.List.waka', compact($wakas));
+        return view('admin.List.waka');
     }
 
     /**
@@ -39,29 +36,7 @@ class WakaController extends Controller
      */
     public function store(Request $request)
     {
-        // ddd($request);
-        $messages = [
-            'required' => ':Mohon isi Field ini',
-            'min' => ':Mohon isi dengan minimal :min karakter ',
-            'max' => ':karakter yang dimasukan melebihin :max',
-            'numeric' => ':Harap isi dengan huruf',
-            'mimes' => ':format yang didukung jpg, jpeg, png, gif, dan svg',
-            'size' => 'file yang diuplad maksimal :size '
-        ];
-        // $this->validate($request,[
-        //     'nama' => 'required|min:5|max:20',
-        //     'jenis_kelamin' => 'required',
-        //     'jabatan' => 'required',
-        //     'foto' => 'required|mimes:jpg,jpeg,png,gif,svg'
-        // ],$messages);
-        $foto =  $request->file('foto')->store('images');
-        Waka::create([
-            "nama" => $request->nama,
-            "jenis_kelamin" => $request->jenis_kelamin,
-            "jabatan" => $request->jabatan,
-            "foto" => $foto
-        ]);
-        return redirect('/admin/waka')->with('status','Data WAKA berhasil dibuat');
+        //
     }
 
     /**
@@ -83,7 +58,7 @@ class WakaController extends Controller
      */
     public function edit($id)
     {
-        
+        //
     }
 
     /**

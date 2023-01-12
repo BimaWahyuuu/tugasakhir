@@ -1,4 +1,3 @@
-
 <div class="main-sidebar sidebar-style-2">
   <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
@@ -80,7 +79,8 @@
                 </a>
               </li> --}}
           <li>
-            <a class="nav-link {{ (request()->is('admin/kategori/create')) ? 'aktif':'' }}" href="/admin/kategori/create">
+            <a class="nav-link {{ (request()->is('kategori/create')) ? 'aktif':'' }}" href="/kategori/create">
+            <a class="nav-link {{ (request()->is('admin/kategori/crea')) ? 'aktif':'' }}" href="/admin/kategori/create">
               <i class="fas fa-tags"></i>Kategori </a>
           </li>
           <li>
