@@ -23,7 +23,9 @@ use App\Http\Controllers\PesanController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
+Route::resource('/home', LandingController::class);
+Route::get('/saran', [LandingController::class, 'saran'])->name('saran');
+Route::get('/tiket', [LandingController::class, 'tiket'])->name('tiket');
 Route::get('/ceksaran', function(){
     return view('user.ceksaran');
 });
@@ -32,11 +34,10 @@ Route::get('/ceksaran', function(){
 //     return view('user.about');
 // });
 
-Route::get('/home', [LandingController::class, 'main']);
-Route::get('/saran', [LandingController::class, 'user']);
+// Route::get('/home', [LandingController::class, 'main']);
+// Route::get('/saran', [LandingController::class, 'user']);
 
-
-Route::get('/masuk', [LoginController::class, 'main'])->name('masuk')->middleware('guest');
+Route::view('/login', 'auth.parent');
 Route::get('/masuk', [LoginController::class, 'main'])->name('masuk')->middleware('guest');
 Route::post('/masuk', [LoginController::class, 'login'])->name('masuk.login')->middleware('guest');
 

@@ -23,11 +23,7 @@ class WakaController extends Controller
      */
     public function create()
     {
-<<<<<<< HEAD
-        return view('admin.Add.addWaka');
-=======
         return view('admin.Add.waka');
->>>>>>> eb1b46c5ad45cb719562927b65ef76e753e08194
     }
 
     /**
