@@ -12,7 +12,7 @@
             <h4>Tambahkan Kategori</h4>
           </div>
           <div class="card-body">
-          	<form action="" method="post">
+          	<form action="{{ route('kategori.create') }}" method="post">
         		@csrf
         		{{-- <input type="hidden" value="{{$data->id}}" name="siswa_id"> --}}
         		<div class="input-group mb-3">
