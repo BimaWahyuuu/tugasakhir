@@ -22,14 +22,15 @@
 	           		<img alt="image" src="{{asset('storage')}}/{{$waka->foto}}" class="rounded-circle object-fit-contain border-success border border-3 profile-widget-picture">
 	           		<div class="me-auto"></div>
 	           		<div class="p-2">
-	           			<a href="javascrip:void(0)" data-id="{{$waka->id}}" id="edit-id" class="btn-icon icon-left-btn-light">
+	           			<button type="button"  class="btn btn-icon icon-left btn-edit" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="{{$waka->nama}}" data-id="{{$waka->id}}">
+	           				<i class="fas fa-pencil-ruler"></i>
 	           				Edit
-	           			</a>
+	           			</button>
 	       			</div>
 	       			<div class="p-2">
-	       				<a href="#" class="ml-3 btn btn-icon icon-left btn-danger">
+	       				<a href="{{ route('waka.hapus', $waka->id) }}" class="ml-3 btn btn-icon icon-left btn-danger">
 	           				<i class="fas fa-trash"></i>
-	           			 	Delete
+	           			 	Hapus
 	           			</a>
 	       			</div>
 		        </div>
@@ -46,4 +47,39 @@
 		</div>
 	@endforeach
 </div>
+@endsection
+@section('specjs')
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Waka</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="edit-form" action="" method="post">
+        	@csrf
+        	{{method_field('PUT')}}
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Nama Waka</label>
+            <input name="nama" type="text" class="form-control" id="nama" value="">
+          </div><div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Jabatan</label>
+            <input name="jabatan" type="text" class="form-control" id="jabatan" value="">
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Deskripsi</label>
+            <textarea class="form-control" ></textarea>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-success">Simpan Perubahan</button>
+      </div>
+        </form>
+    </div>
+  </div>
+</div>
+	<script src="{{ asset('js/customScript.js') }}"></script>
+
 @endsection

@@ -42,6 +42,7 @@ Route::get('/login', [LoginController::class, 'main'])->name('masuk')->middlewar
 Route::post('/login', [LoginController::class, 'login'])->name('masuk.login')->middleware('guest');
 
 Route::resource('admin/waka', WakaController::class);
+Route::get('admin/waka/{waka_id}/hapus',[WakaController::class,'hapus'])->name('waka.hapus');
 Route::resource('admin/kategori', KategoriController::class);
 Route::resource('admin/pesan', PesanController::class);
 

@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Waka;
-
+use Redirect,Response;
+use File;
 class WakaController extends Controller
 {
     /**
@@ -48,12 +49,13 @@ class WakaController extends Controller
             'mimes' => ':format yang didukung jpg, jpeg, png, gif, dan svg',
             'size' => 'file yang diuplad maksimal :size '
         ];
-        // $this->validate($request,[
-        //     'nama' => 'required|min:5|max:20',
-        //     'jenis_kelamin' => 'required',
-        //     'jabatan' => 'required',
-        //     'foto' => 'required|mimes:jpg,jpeg,png,gif,svg'
-        // ],$messages);
+        $this->validate($request,[
+            'nama' => 'required|min:5|max:20',
+            'jenis_kelamin' => 'required',
+            'jabatan' => 'required',
+            'foto' => 'required|mimes:jpg,jpeg,png,gif,svg'
+        ],$messages);
+        dd($errors);
         $foto =  $request->file('foto')->store('images');
         // ddd($foto);
         Waka::create([
@@ -84,7 +86,9 @@ class WakaController extends Controller
      */
     public function edit($id)
     {
-        
+        $user = Waka::find($id);
+        return Response::json($user);
+        dd($user);
     }
 
     /**
@@ -96,7 +100,42 @@ class WakaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // ddd($request);
+        // $messages = [
+        //     'required' => ':Mohon isi Field ini',
+        //     'min' => ':Mohon isi dengan minimal :min karakter ',
+        //     'max' => ':karakter yang dimasukan melebihin :max',
+        //     'numeric' => ':Harap isi dengan huruf',
+        //     'mimes' => ':format yang didukung jpg, jpeg, png, gif, dan svg',
+        //     'size' => 'file yang diuplad maksimal :size '
+        // ];
+        // $this->validate($request,[
+        //     'nama' => 'required|min:5|max:20',
+        //     'jenis_kelamin' => 'required',
+        //     'jabatan' => 'required',
+        //     'foto' => 'required|mimes:jpg,jpeg,png,gif,svg'
+        // ],$messages);
+        // if ($request->foto != '') {
+            // $old = Waka::find($id);
+            // file::delete(asset('/storage'.$old->foto));
+
+            // $foto = $request->file('foto')->store('images');
+            $waka = Waka::find($id);
+            $waka->nama = $request->nama;
+            $waka->jabatan = $request->jabatan;
+            // $waka->foto = $foto;
+            $waka->save();
+            // ddd($waka);
+            return redirect('/admin/waka')->with('status', 'Data Waka Berhasil Diupdate');
+        // }else{
+        //     $waka = Waka::find($id);
+        //     $waka->nama = $request->nama;
+        //     $waka->jabatan = $request->jabatan;
+        //     $waka->save();
+        //     ddd($waka);
+        // };
+        
+        $foto =  $request->file('foto')->store('images');
     }
 
     /**
@@ -107,6 +146,14 @@ class WakaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $waka = Waka::find($id);
+        $waka->delete();
+        return redirect('/admin/waka')->with('status', 'Data waka '.$waka->nama.' berhail dihapus');
+    }
+    public function hapus($id)
+    {
+        $waka = Waka::find($id);
+        $waka->delete();
+        return redirect('/admin/waka')->with('status', 'Data waka '.$waka->nama.' berhail dihapus');
     }
 }
