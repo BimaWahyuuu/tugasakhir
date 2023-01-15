@@ -1,4 +1,4 @@
-<form action="/masuk" method="post">
+<form action="/login" method="post">
         @csrf
         <div class="col-lg-10 col-lg-offset-1 col-lg-offset-right-1 col-md-10 col-md-offset-1 col-md-offset-right-1 col-sm-12 col-xs-12 pull-right ">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label @error('email') is-invalid  @enderror">

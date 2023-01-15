@@ -16,10 +16,11 @@ return new class extends Migration
         Schema::create('waka', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            // $table->string('nama');
+            $table->string('jenis_kelamin');
             // $table->string('email');
             // $table->string('password');
             $table->string('jabatan');
+            $table->string('foto');
             $table->timestamps();
         });
     }
