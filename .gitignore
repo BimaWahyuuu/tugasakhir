@@ -18,6 +18,5 @@ yarn-error.log
 /.idea
 /.vscode
 /public/stisla
-/public/login
+/public/masuk
 /public/landing
-/public/*
