@@ -38,10 +38,11 @@ Route::get('/ceksaran', function(){
 // Route::get('/saran', [LandingController::class, 'user']);
 
 Route::view('/login', 'auth.parent');
-Route::get('/masuk', [LoginController::class, 'main'])->name('masuk')->middleware('guest');
-Route::post('/masuk', [LoginController::class, 'login'])->name('masuk.login')->middleware('guest');
+Route::get('/login', [LoginController::class, 'main'])->name('masuk')->middleware('guest');
+Route::post('/login', [LoginController::class, 'login'])->name('masuk.login')->middleware('guest');
 
 Route::resource('admin/waka', WakaController::class);
+Route::get('admin/waka/{waka_id}/hapus',[WakaController::class,'hapus'])->name('waka.hapus');
 Route::resource('admin/kategori', KategoriController::class);
 Route::resource('admin/pesan', PesanController::class);
 

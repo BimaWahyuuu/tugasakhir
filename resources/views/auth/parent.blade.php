@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width,initial-scale=1" name="viewport">
-    <link rel="stylesheet" href="{{ asset('login/node_modules/bootstrap/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('masuk/node_modules/bootstrap/dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-deep_purple.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-    <link href="{{ asset('login/fonts/fontello/css/fontello.css') }}" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('login/css/bootstrap-offset-right.css') }}">
-    <link rel="stylesheet" href="{{ asset('login/css/style.css') }}">
+    <link href="{{ asset('masuk/fonts/fontello/css/fontello.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('masuk/css/bootstrap-offset-right.css') }}">
+    <link rel="stylesheet" href="{{ asset('masuk/css/style.css') }}">
     <title>KOAR | Login Page</title>
-    <link rel="stylesheet" href="{{ asset('login/loginstyle.css') }}">
+    <link rel="stylesheet" href="{{ asset('masuk/loginstyle.css') }}">
 </head>
 <body>
     <div class="container">
@@ -41,10 +41,10 @@
         </div>
         <!--container-->
     </div>
-    <script src="{{ asset('login/node_modules/jquery/dist/jquery.min.js') }}"></script>
-    <script src="{{ asset('login/node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('login/libs/mdl/material.min.js') }}"></script>
-    <script src="{{ asset('login/http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('masuk/node_modules/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('masuk/node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('masuk/libs/mdl/material.min.js') }}"></script>
+    <script src="{{ asset('masuk/http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js') }}"></script>
 </body>
 
 </html>
