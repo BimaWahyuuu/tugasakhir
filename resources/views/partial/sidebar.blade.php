@@ -60,8 +60,8 @@
               </a>
             </li> --}}
           <li>
-            <a class="nav-link {{ (request()->is('admin/kategori')) ? 'aktif':'' }}" href="/admin/kategori">
-              <i class="fas fa-tags"></i>Kategori </a>
+            <a class="nav-link {{ (request()->is('admin/bidang')) ? 'aktif':'' }}" href="/admin/bidang">
+              <i class="fas fa-tags"></i>bidang </a>
           </li>
           <li>
             <a class="nav-link {{ (request()->is('admin/waka/')) ? 'aktif':'' }}" href="/admin/waka/">
@@ -80,8 +80,8 @@
                 </a>
               </li> --}}
           <li>
-            <a class="nav-link {{ (request()->is('admin/kategori/create')) ? 'aktif':'' }}" href="/admin/kategori/create">
-              <i class="fas fa-tags"></i>Kategori </a>
+            <a class="nav-link {{ (request()->is('admin/bidang/create')) ? 'aktif':'' }}" href="/admin/bidang/create">
+              <i class="fas fa-tags"></i>bidang </a>
           </li>
           <li>
             <a class="nav-link {{ (request()->is('admin/waka/create')) ? 'aktif':'' }}" href="/admin/waka/create">

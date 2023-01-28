@@ -22,6 +22,10 @@
 .bg-linkedin{
 	background: #0072b1 ;
 }
+
+.logo-kosong{
+	width: 200px !important;
+}
 /*
 .modal{
 	position: relative;
