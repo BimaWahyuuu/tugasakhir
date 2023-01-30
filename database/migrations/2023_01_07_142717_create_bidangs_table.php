@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreign('waka_id')->references('id')->on('waka')
                   ->onUpdate('cascade')
                   ->onDelete('cascade');
-            $table->string('deskripsi');
+            $table->string('bidang');
             $table->timestamps();
         });
     }
