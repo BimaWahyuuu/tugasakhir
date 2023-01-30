@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Waka;
+use App\Models\Bidang;
 
 class KategoriController extends Controller
 {
@@ -23,7 +25,9 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        return view('admin.Add.kategori');
+        $wakas = Waka::all();
+        // dd($wakas);
+        return view('admin.Add.kategori',compact('wakas'));
     }
 
     /**
@@ -34,7 +38,20 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $messages = [
+            'required' => ':Mohon isi Field ini',
+            'min' => ':Mohon isi dengan minimal :min karakter ',
+            'max' => ':karakter yang dimasukan melebihin :max',
+            'numeric' => ':Harap isi dengan huruf',
+            'mimes' => ':format yang didukung jpg, jpeg, png, gif, dan svg',
+            'size' => 'file yang diuplad maksimal :size '
+        ];
+        $this->validate($request,[
+            "kategori" => 'required'
+        ],$messages);
+
+
+
     }
 
     /**

@@ -55,7 +55,7 @@ class WakaController extends Controller
             'jabatan' => 'required',
             'foto' => 'required|mimes:jpg,jpeg,png,gif,svg'
         ],$messages);
-        dd($errors);
+        // dd($errors);
         $foto =  $request->file('foto')->store('images');
         // ddd($foto);
         Waka::create([
@@ -88,7 +88,7 @@ class WakaController extends Controller
     {
         $user = Waka::find($id);
         return Response::json($user);
-        dd($user);
+        // dd($user);
     }
 
     /**
