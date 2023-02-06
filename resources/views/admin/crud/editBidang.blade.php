@@ -8,7 +8,9 @@
 @include('partial.alert')
 <div class="row">
     <div class="card">
-        <div class="card-header text-center text-primary">Edit Bidang</div>
+        <div class="card-header text-primary">
+          <p class="me-auto text-primary fw-bold">Edit Waka {{$waka->nama}}</p>
+        </div>
         <div class="card-body">
             <table class="table">
               <thead>

@@ -66,8 +66,8 @@
       </div>
       <div class="modal-body">
         <form id="edit-form" action="" method="post">
-        	{{-- @csrf
-        	{{method_field('PUT')}} --}}
+        	@csrf
+        	{{method_field('PUT')}}
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Nama Waka</label>
             <input name="nama" type="text" class="form-control" id="nama" value="">
