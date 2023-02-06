@@ -7,7 +7,7 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\WakaController;
 use App\Http\Controllers\BidangController;
 use App\Http\Controllers\PesanController;
-
+use App\Http\Controllers\SaranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,19 +23,19 @@ use App\Http\Controllers\PesanController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::resource('/home', LandingController::class);
-Route::get('/saran', [LandingController::class, 'saran'])->name('saran');
-Route::get('/tiket', [LandingController::class, 'tiket'])->name('tiket');
+Route::resource('/saran', SaranController::class);
+Route::get('/home', function(){
+    return view('user.homepage');
+});
+// Route::resource('/home', LandingController::class);
+// Route::get('/saran', [LandingController::class, 'saran'])->name('saran');
+// Route::get('/tiket', [LandingController::class, 'tiket'])->name('tiket');
 Route::get('/ceksaran', function(){
     return view('user.ceksaran');
 });
-
-// Route::get('/about', function(){
-//     return view('user.about');
-// });
-
-// Route::get('/home', [LandingController::class, 'main']);
-// Route::get('/saran', [LandingController::class, 'user']);
+Route::get('/tentangkami', function(){
+    return view('user.tentangkami');
+});
 
 Route::view('/login', 'auth.parent');
 Route::get('/login', [LoginController::class, 'main'])->name('masuk')->middleware('guest');

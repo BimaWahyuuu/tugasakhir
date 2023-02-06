@@ -7,7 +7,7 @@
         <h2 class="text-center mt-0">K O A R</h2>
         <hr class="divider" />
         
-        <form action="{{ route('home.store') }}" method="POST">
+        <form action="{{ route('saran.store') }}" method="POST">
         @csrf
         <div class="mb-3">
             <label for="nisornip" class="form-label">NIS / NIP</label>
@@ -23,18 +23,17 @@
         </div>
         <div class="mb-3">
             <label for="waka" class="form-label">Waka</label>
-            <select name="waka_id" id="" class="form-select">
-                {{-- <option value="selected"></option> --}}
+            <select name="waka_id" id="" class="form-select form-control">
                 @foreach ($wakas as $waka)
-                    <option value="{{ $waka->id }}">{{ $waka->name }}</option>
+                    <option value="{{ $waka->id }}">{{ $waka->nama }}</option>
                 @endforeach
             </select>
         </div>
         <div class="mb-3">
             <label for="bidang" class="form-label">Bidang</label>
-            <select name="bidang_id" id="" class="form-select">
+            <select name="bidang_id" id="" class="form-select form-control">
                 @foreach ($bidangs as $bidang)
-                    <option value="{{ $bidang->id }}">{{ $bidang->name }}</option>
+                    <option value="{{ $bidang->id }}">{{ $bidang->nama }}</option>
                 @endforeach
             </select>
         </div>

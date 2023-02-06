@@ -23,14 +23,14 @@
 						<tr>
 							<td>{{$i}}</td>
 							<td>{{$waka->nama}}</td>
-							<td>
+							<td class="d-flex">
 								<button onclick="showAll({{$waka->id}})" 
 								class="btn-primary btn icon-primary icon-left">
 									<i class="fas fa-eye"></i>
 									Lihat
 								</button>
 								<a href="{{ route('bidang.edit', $waka->id)}}" onclick="showAll({{$waka->id}})" 
-								class="ml-2 btn-warning btn icon-warning icon-left">
+								class="ml-2 d-inline btn-warning btn icon-warning icon-left">
 									<i class="fas fa-tools"></i>
 									edit
 								</a>

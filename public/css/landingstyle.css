@@ -1,0 +1,26 @@
+#mainNav {
+    box-shadow: none;
+    background-color: #9caf88 !important;
+}
+#mainNav.navbar-shrink .navbar-brand {
+    color: #ffffffb3 !important;
+}
+#mainNav.navbar-shrink .navbar-nav .nav-item .nav-link {
+    color: #ffffffb3 !important;
+}
+#mainNav .navbar-nav .nav-item .nav-link:hover {
+    color: #3f5627 !important;
+}
+header.masthead {
+    background: #9caf88 !important;
+}
+.btn-primary {
+    color: #000000 !important;
+}
+.btn-primary:hover {
+    color: #fff !important;
+    background-color: #525a49 !important;
+}
+#mainNav .navbar-brand:hover {
+    color: #3f5627 !important;
+}
