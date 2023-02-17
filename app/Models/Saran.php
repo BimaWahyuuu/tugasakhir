@@ -11,14 +11,14 @@ class Saran extends Model
     use HasFactory;
 
     protected $guarded = [
-        'id', 'dibuat'
+        'id'
     ];
 
     public function tanggapan(){
         return $this->hasMany(Tanggapan::class, 'saran_id','id');
     }
     public function bidang(){
-        return $this->belongsTo(Bidang::class, 'id');
+        return $this->belongsTo(Bidang::class, 'bidang_id');
     }
 
     protected $table = 'saran';

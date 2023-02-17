@@ -23,29 +23,39 @@ use App\Http\Controllers\PesanController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+// <-----front----->
 Route::resource('/home', LandingController::class);
 Route::get('/saran', [LandingController::class, 'saran'])->name('saran');
 Route::get('/tiket', [LandingController::class, 'tiket'])->name('tiket');
 Route::get('/ceksaran', function(){
     return view('user.ceksaran');
 });
+// <-----endfront----->
 
-// Route::get('/about', function(){
-//     return view('user.about');
-// });
-
-// Route::get('/home', [LandingController::class, 'main']);
-// Route::get('/saran', [LandingController::class, 'user']);
-
+// <-----auth----->
 Route::view('/login', 'auth.parent');
 Route::get('/login', [LoginController::class, 'main'])->name('masuk')->middleware('guest');
 Route::post('/login', [LoginController::class, 'login'])->name('masuk.login')->middleware('guest');
 
-Route::resource('admin/waka', WakaController::class);
-Route::get('admin/waka/{waka_id}/hapus',[WakaController::class,'hapus'])->name('waka.hapus');
-Route::resource('admin/bidang', BidangController::class);
-Route::resource('admin/pesan', PesanController::class);
+// <-----endauth----->
+
+// <-----admin----->
 
 Route::get('/admin', [DashboardController::class, 'main']);
 Route::get('/admin/admin', [DashboardController::class, 'admin']);
+
+
+// waka
+Route::post('admin/waka/{waka_id}/hapus',[WakaController::class,'hapus'])->name('waka.hapus');
+Route::resource('/admin/waka', WakaController::class);
+
+// bidang
+Route::resource('/admin/bidang', BidangController::class);
 Route::get('admin/bidang/list/{waka_id}', [BidangController::class, 'list'])->name('bidang.list');
+
+// pesan
+Route::get('/admin/pesan/histories',[PesanController::class,'histories'])->name('pesan.histories');
+Route::post('/admin/pesan/{pesan_id}', [PesanController::class,'tolak'])->name('pesan.tolak');
+Route::resource('/admin/pesan', PesanController::class);
+
+// <-----admin----->

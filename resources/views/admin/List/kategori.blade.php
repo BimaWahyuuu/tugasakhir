@@ -23,17 +23,17 @@
 						<tr>
 							<td>{{$i}}</td>
 							<td>{{$waka->nama}}</td>
-							<td>
-								<button onclick="showAll({{$waka->id}})" 
-								class="btn-primary btn icon-primary icon-left">
-									<i class="fas fa-eye"></i>
-									Lihat
-								</button>
-								<a href="{{ route('bidang.edit', $waka->id)}}" onclick="showAll({{$waka->id}})" 
-								class="ml-2 btn-warning btn icon-warning icon-left">
-									<i class="fas fa-tools"></i>
-									edit
-								</a>
+							<td width="200px">
+									<a href="{{ route('bidang.edit', $waka->id)}}" onclick="showAll({{$waka->id}})" 
+									class="btn-warning btn icon-warning icon-left d-inline" >
+										<i class="fas fa-tools"></i>
+										edit
+									</a>
+								  	<button onclick="showAll({{$waka->id}})" 
+									class="btn-primary btn icon-primary d-inline icon-left">
+										<i class="fas fa-eye"></i>
+										Lihat
+									</button>
 							</td>
 						</tr>
 					@endforeach

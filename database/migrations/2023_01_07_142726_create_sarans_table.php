@@ -25,7 +25,6 @@ return new class extends Migration
             $table->string('judul');
             $table->string('isi');
             $table->string('foto');
-            $table->timestamp('dibuat');
             $table->string('status');
             $table->BigInteger('quote')->nullable();
             $table->timestamps();
