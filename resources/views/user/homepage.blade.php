@@ -3,9 +3,9 @@
     <!-- Masthead-->
     @include('user.masthead')
     <!-- About-->
-    @include('user.saran')
+    {{-- @include('user.saran') --}}
     <!-- Services-->
-    @include('user.services')
+    {{-- @include('user.services') --}}
     <!-- Portfolio-->
-    @include('user.portofolio')
+    @include('user.tentangkami')
 @endsection

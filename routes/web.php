@@ -7,7 +7,7 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\WakaController;
 use App\Http\Controllers\BidangController;
 use App\Http\Controllers\PesanController;
-
+use App\Http\Controllers\SaranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +23,7 @@ use App\Http\Controllers\PesanController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
 // <-----front----->
 Route::resource('/home', LandingController::class);
 Route::get('/saran', [LandingController::class, 'saran'])->name('saran');
@@ -30,7 +31,22 @@ Route::get('/tiket', [LandingController::class, 'tiket'])->name('tiket');
 Route::get('/ceksaran', function(){
     return view('user.ceksaran');
 });
+Route::resource('/saran', SaranController::class);
+Route::get('/home', function(){
+    return view('user.homepage');
+});
+Route::get('/ceksaran', function(){
+    return view('user.ceksaran');
+});
+Route::get('/tentangkami', function(){
+    return view('user.tentangkami');
+});
 // <-----endfront----->
+
+
+// Route::resource('/home', LandingController::class);
+// Route::get('/saran', [LandingController::class, 'saran'])->name('saran');
+// Route::get('/tiket', [LandingController::class, 'tiket'])->name('tiket');
 
 // <-----auth----->
 Route::view('/login', 'auth.parent');
