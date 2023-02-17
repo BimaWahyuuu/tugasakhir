@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Saran;
+use App\Models\Bidang;
+use App\Models\Waka;
 
 class LandingController extends Controller
 {
@@ -13,11 +16,9 @@ class LandingController extends Controller
      */
     public function index()
     {
-        return view ('user.homepage');
-    }
-
-    public function saran(){
-        return view ('user.saran');
+        $wakas = Waka::all();
+        $bidangs = Bidang::all();
+        return view ('user.homepage', compact('wakas','bidangs'));
     }
 
     public function tiket()
@@ -48,7 +49,19 @@ class LandingController extends Controller
      */
     public function store(Request $request)
     {
-        return view ('user.saran');
+        Saran::create([
+            
+            'tiket'=> '100000000000000000000',
+            'nisornip' => $request->nisornip,
+            'nama' => $request->nama,
+            'jurusan' => $request->jurusan,
+            'deskripsi' => $request->deskripsi,
+            'foto' => $request->foto,
+            'waka_id' => $request->waka_id,
+            'bidang_id'=> $request->bidang_id,
+            'status' => 'dikirim'
+        ]);
+        return redirect ('/saran');
     }
 
     /**
@@ -94,5 +107,9 @@ class LandingController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function saran(){
+        
     }
 }

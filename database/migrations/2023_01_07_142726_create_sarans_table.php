@@ -19,11 +19,14 @@ return new class extends Migration
             $table->foreign('bidang_id')->references('id')->on('bidang')
                   ->onUpdate('cascade')
                   ->onDelete('cascade');
-            $table->string('tiket');
+            $table->foreign('waka_id')->references('id')->on('waka')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
+            $table->string('tiket')->nullable();
+            $table->string('nisornip');
             $table->string('nama');
-            $table->string('pengenal');
-            $table->string('judul');
-            $table->string('isi');
+            $table->string('jurusan');
+            $table->string('deskripsi');
             $table->string('foto');
             $table->string('status');
             $table->BigInteger('quote')->nullable();

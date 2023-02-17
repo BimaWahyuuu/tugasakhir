@@ -13,6 +13,12 @@
                 <a class="btn btn-primary btn-xl" href="/saran">Buat Saran</a>
             </div>
         </div>
+        </div>
     </div>
+    
+        
+            
 </header>
+
+
 @endsection
