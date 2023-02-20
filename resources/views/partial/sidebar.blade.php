@@ -18,7 +18,7 @@
         </a>
         <ul class="dropdown-menu">
           <li>
-            <a class="nav-link {{ (request()->is('admin/dashboard')) ? 'aktif':'' }}" href="/admin/dashboard">Status</a>
+            <a class="nav-link {{ (request()->is('admin')) ? 'aktif':'' }}" href="/admin">Status</a>
           </li>
           <li>
             <a class="nav-link {{ (request()->is('admin/admin')) ? 'aktif':'' }}" href="/admin/admin">Admin</a>
@@ -34,9 +34,9 @@
         <ul class="dropdown-menu">
           <li>
             <a class="nav-link {{ (request()->is('admin/pesan')) ? 'aktif':'' }}" href="/admin/pesan/">
-              <i class="fas fa-envelope"></i>Pesan Masuk </a>
+              <i class="fas fa-envelope"></i>Pesan</a>
           </li><li>
-            <a class="nav-link {{ (request()->is('admin/pesan/history')) ? 'aktif':'' }}" href="/admin/pesan/history/">
+            <a class="nav-link {{ (request()->is('admin/pesan/history')) ? 'aktif':'' }}" href="{{route('pesan.histories')}}">
               <i class="fas fa-history"></i>History</a>
           </li>
           {{-- <li>

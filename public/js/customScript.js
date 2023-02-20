@@ -68,3 +68,23 @@ e.addEventListener('click', function(){
 
     })
 });
+console.log('halo dunia')
+$('#menus').on('click',function(event) {
+    event.preventDefault();
+    // let ini = event.target;
+    // console.log(ini)
+    if ($(event.target).hasClass('menu-itm')) {
+        $('.menu-itm').not(this).removeClass('active');
+        $('.menu-itm').not(this).children().removeClass('badge-white').addClass('badge-primary');
+        var anak = $(event.target).children()[0];
+        anak.classList.remove('badge-primary')
+        anak.classList.add('badge-white')
+        anak.parentElement.classList.add('active')
+
+        let a = $(event.target).data("id")
+
+        $('.mainContent').addClass('d-none')
+        $('#'+a).removeClass('d-none')
+    }   
+});
+
