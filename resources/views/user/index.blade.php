@@ -29,7 +29,6 @@
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link" href="/saran">Saran</a></li>
                         <li class="nav-item"><a class="nav-link" href="/ceksaran">Cek Saran</a></li>
-                        {{-- <li class="nav-item"><a class="nav-link" href="#portfolio">Riwayat</a></li> --}}
                         <li class="nav-item"><a class="nav-link" href="/tentangkami">Tentang Kami</a></li>
                     </ul>
                 </div>
