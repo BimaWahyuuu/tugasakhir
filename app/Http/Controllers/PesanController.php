@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Saran;
 
 class PesanController extends Controller
 {
@@ -13,7 +14,10 @@ class PesanController extends Controller
      */
     public function index()
     {
-        return view('admin.Pesan.kotakMasuk');
+        $allPost = Saran::orderBy('created_at')->get();
+        $rejects = Saran::where('status','ditolak')->get();
+        $accs = Saran::where('status','diterima')->get();
+        return view('admin.Pesan.semuaPesan', compact('allPost', 'rejects', 'accs'));
     }
 
     /**
@@ -45,7 +49,12 @@ class PesanController extends Controller
      */
     public function show($id)
     {
-        //
+        $saran = Saran::find($id);
+
+        if ($saran->status == 'baru') {
+            $saran->update(['status' => 'dibaca']);
+        }
+        return view('admin.Pesan.pesan', compact('saran'));
     }
 
     /**
@@ -57,6 +66,7 @@ class PesanController extends Controller
     public function edit($id)
     {
         //
+
     }
 
     /**
@@ -68,7 +78,9 @@ class PesanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // dd($request);
+        Saran::find($id)->update(['status' => $request->status]);
+        return redirect('admin/pesan'); 
     }
 
     /**
@@ -79,6 +91,19 @@ class PesanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Saran::find($id)->delete();
+        return back();
+    }
+
+    public function histories(){
+        return view('admin.Pesan.histories');
+    }
+
+    public function tolak($id){
+        $saran = Saran::find($id);
+        $saran->update(['status' => 'ditolak']);
+        $sarans = Saran::all();
+
+        return back();
     }
 }

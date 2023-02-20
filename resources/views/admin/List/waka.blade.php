@@ -35,10 +35,14 @@
 		           			</button>
 		       			</div>
 		       			<div class="p-2">
-		       				<a href="{{ route('waka.hapus', $waka->id) }}" class="ml-3 btn btn-icon icon-left btn-danger">
-		           				<i class="fas fa-trash"></i>
-		           			 	Hapus
-		           			</a>
+		       				<form action="{{ route('waka.destroy', $waka->id) }}" method="post">
+		       					@csrf
+		       					@method('DELETE')
+			       					<button type="submit" class="ml-3 btn btn-icon icon-left btn-danger">
+			           				<i class="fas fa-trash"></i>
+			           			 	Hapus
+			           			</button>
+		       				</form>
 		       			</div>
 			        </div>
 			          <div class="profile-widget-description pb-0">
@@ -66,8 +70,8 @@
       </div>
       <div class="modal-body">
         <form id="edit-form" action="" method="post">
-        	{{-- @csrf
-        	{{method_field('PUT')}} --}}
+        	@csrf
+        	{{method_field('PUT')}}
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Nama Waka</label>
             <input name="nama" type="text" class="form-control" id="nama" value="">

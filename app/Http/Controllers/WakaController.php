@@ -150,10 +150,10 @@ class WakaController extends Controller
         $waka->delete();
         return redirect('/admin/waka')->with('status', 'Data waka '.$waka->nama.' berhail dihapus');
     }
-    public function hapus($id)
-    {
-        $waka = Waka::find($id);
-        $waka->delete();
-        return redirect('/admin/waka')->with('status', 'Data waka '.$waka->nama.' berhail dihapus');
-    }
+    // public function hapus($id)
+    // {
+    //     $waka = Waka::find($id);
+    //     $waka->delete();
+    //     return redirect('/admin/waka')->with('status', 'Data waka '.$waka->nama.' berhail dihapus');
+    // }
 }
