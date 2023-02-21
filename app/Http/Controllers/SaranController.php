@@ -52,7 +52,7 @@ class SaranController extends Controller
             'bidang_id'=> 1,
             'status' => 'baru'
         ]);
-        return redirect ('/saran');
+        return redirect ('/home');
     }
 
     /**
