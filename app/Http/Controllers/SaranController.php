@@ -99,4 +99,7 @@ class SaranController extends Controller
     {
         //
     }
+    public function bidangWaka($id){
+        Bidang::where('waka_id',$id);
+    }
 }

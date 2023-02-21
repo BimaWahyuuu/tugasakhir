@@ -18,8 +18,7 @@ class BidangController extends Controller
         $wakas = Waka::all();
         $bidangs = Bidang::all();
         // dd($wakas);
-        return view('admin.List.kategori',compact('wakas', 'bidangs'));
-
+        return view('admin.List.kategori', compact('wakas', 'bidangs'));
     }
 
     /**
@@ -31,7 +30,7 @@ class BidangController extends Controller
     {
         $wakas = Waka::all();
         // dd($wakas);
-        return view('admin.Add.kategori',compact('wakas'));
+        return view('admin.Add.kategori', compact('wakas'));
     }
 
     /**
@@ -78,7 +77,7 @@ class BidangController extends Controller
         $bidangs = Bidang::all()->where('waka_id', $id);
         $waka = Waka::find($id);
         // dd($bidangs);
-        return view('admin/List/bidangItem',compact('bidangs','waka'));
+        return view('admin/List/bidangItem', compact('bidangs', 'waka'));
     }
 
     /**
@@ -93,7 +92,7 @@ class BidangController extends Controller
         $waka = Waka::find($id);
 
         // dd($bidangs);
-        return view('admin/crud/editBidang',compact('bidangs', 'waka'));
+        return view('admin/crud/editBidang', compact('bidangs', 'waka'));
     }
 
     /**
@@ -128,5 +127,4 @@ class BidangController extends Controller
 
         return redirect()->back()->with('delete', "Bidang '$oldBidang' Berhasil Dihapus");
     }
-
 }
