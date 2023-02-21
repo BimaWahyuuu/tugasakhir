@@ -19,9 +19,10 @@ return new class extends Migration
             $table->foreign('bidang_id')->references('id')->on('bidang')
                   ->onUpdate('cascade')
                   ->onDelete('cascade');
-            $table->foreign('waka_id')->references('id')->on('waka')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+            // $table->BigInteger('waka_id')->unsigned();
+            // $table->foreign('waka_id')->references('id')->on('waka')
+            //       ->onUpdate('cascade')
+            //       ->onDelete('cascade');
             $table->string('tiket')->nullable();
             $table->string('nisornip');
             $table->string('nama');

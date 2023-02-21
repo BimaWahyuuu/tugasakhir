@@ -17,7 +17,8 @@ class PesanController extends Controller
         $allPost = Saran::orderBy('created_at')->get();
         $rejects = Saran::where('status','ditolak')->get();
         $accs = Saran::where('status','diterima')->get();
-        return view('admin.Pesan.semuaPesan', compact('allPost', 'rejects', 'accs'));
+        $new = Saran::where('status', 'baru')->get();
+        return view('admin.Pesan.semuaPesan', compact('allPost', 'rejects', 'accs','new'));
     }
 
     /**
