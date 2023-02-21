@@ -18,12 +18,13 @@ class SaranFactory extends Factory
     public function definition()
     {
         return [
-            'bidang_id' => rand(1, 3),
+            'bidang_id' => 1,
             'tiket' => fake()->regexify('[A-Z]{5}[0-4]{7}'),
             'nama' => fake()->name(),
-            'pengenal' => fake()->randomNumber(5, true),
-            'judul' => fake()->slug(3, false),
-            'isi' => fake()->paragraph(2, false),
+            'nisornip' => fake()->randomNumber(5, true),
+            // 'judul' => fake()->slug(3, false),
+            'jurusan' => "Rekayasa Perangkat Lunak",
+            'deskripsi' => fake()->paragraph(2, false),
             'foto' => 'Wahyudi.jpg',
             'status' =>'baru',
         ];

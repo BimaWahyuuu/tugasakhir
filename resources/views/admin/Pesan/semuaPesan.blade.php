@@ -82,7 +82,7 @@
                       <label for="checkbox-all" class="custom-control-label">&nbsp;</label>
                     </div>
                   </th>
-                  <th>Judul</th>
+                  <th>jurusan</th>
                   <th>Waka/Bidang</th>
                   <th>Penulis</th>
                   <th>Created At</th>
@@ -96,7 +96,7 @@
                       <label for="checkbox-2" class="custom-control-label">&nbsp;</label>
                     </div>
                   </td>
-                  <td>{{$saran->judul}}<div class="table-links mr-3">
+                  <td>{{$saran->jurusan}}<div class="table-links mr-3">
                     <a href="{{ route('pesan.show', $saran->id) }}">Baca</a>
                     <div class="bullet"></div>
                       <form class="d-inline" action="{{ route('pesan.tolak', $saran->id) }}" method="post">
@@ -218,7 +218,7 @@
                       <label for="checkbox-all" class="custom-control-label">&nbsp;</label>
                     </div>
                   </th>
-                  <th>Judul</th>
+                  <th>jurusan</th>
                   <th>Waka/Bidang</th>
                   <th>Penulis</th>
                   <th>Created At</th>
@@ -232,7 +232,7 @@
                       <label for="checkbox-2" class="custom-control-label">&nbsp;</label>
                     </div>
                   </td>
-                  <td>{{$acc->judul}}<div class="table-links mr-3">
+                  <td>{{$acc->jurusan}}<div class="table-links mr-3">
                     <a href="{{ route('pesan.show', $acc->id) }}">Baca</a>
                     <div class="bullet"></div>
                       <form class="d-inline" action="{{ route('pesan.tolak', $acc->id) }}" method="post">
@@ -348,7 +348,7 @@
                       <label for="checkbox-all" class="custom-control-label">&nbsp;</label>
                     </div>
                   </th>
-                  <th>Judul</th>
+                  <th>jurusan</th>
                   <th>Waka/Bidang</th>
                   <th>Penulis</th>
                   <th>Created At</th>
@@ -362,7 +362,7 @@
                       <label for="checkbox-2" class="custom-control-label">&nbsp;</label>
                     </div>
                   </td>
-                  <td>{{$reject->judul}}<div class="table-links mr-3">
+                  <td>{{$reject->jurusan}}<div class="table-links mr-3">
                     <a href="{{ route('pesan.show', $reject->id) }}">Baca</a>
                     <div class="bullet"></div>
                       <form class="d-inline" action="{{ route('pesan.tolak', $reject->id) }}" method="post">

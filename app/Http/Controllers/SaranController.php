@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Waka;
 use App\Models\Bidang;
+use App\Models\Saran;
 
 class SaranController extends Controller
 {
@@ -39,17 +40,17 @@ class SaranController extends Controller
      */
     public function store(Request $request)
     {
-        
+        // dd($request);
         Saran::create([    
-            'tiket'=> '100000000000000000000',
+            'tiket'=> '7VS79G2VSB2O179GS',
             'nisornip' => $request->nisornip,
             'nama' => $request->nama,
             'jurusan' => $request->jurusan,
             'deskripsi' => $request->deskripsi,
-            'foto' => $request->foto,
-            'waka_id' => $request->waka_id,
-            'bidang_id'=> $request->bidang_id,
-            'status' => 'dikirim'
+            'foto' => 'wahyudi.jpg',
+            // 'waka_id' => $request->waka_id,
+            'bidang_id'=> 1,
+            'status' => 'baru'
         ]);
         return redirect ('/saran');
     }

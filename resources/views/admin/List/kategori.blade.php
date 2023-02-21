@@ -23,19 +23,6 @@
 						<tr>
 							<td>{{$i}}</td>
 							<td>{{$waka->nama}}</td>
-<<<<<<< HEAD
-							<td width="200px">
-									<a href="{{ route('bidang.edit', $waka->id)}}" onclick="showAll({{$waka->id}})" 
-									class="btn-warning btn icon-warning icon-left d-inline" >
-										<i class="fas fa-tools"></i>
-										edit
-									</a>
-								  	<button onclick="showAll({{$waka->id}})" 
-									class="btn-primary btn icon-primary d-inline icon-left">
-										<i class="fas fa-eye"></i>
-										Lihat
-									</button>
-=======
 							<td class="d-flex">
 								<button onclick="showAll({{$waka->id}})" 
 								class="btn-primary btn icon-primary icon-left">
@@ -47,7 +34,6 @@
 									<i class="fas fa-tools"></i>
 									edit
 								</a>
->>>>>>> efdd4b7b00932dc5f8552c17608c792ee7a3d38e
 							</td>
 						</tr>
 					@endforeach

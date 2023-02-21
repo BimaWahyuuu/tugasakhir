@@ -32,9 +32,11 @@
         <div class="mb-3">
             <label for="bidang" class="form-label">Bidang</label>
             <select name="bidang_id" id="" class="form-select form-control">
-                @foreach ($bidangs as $bidang)
+                <option value="1">Keterlambatan</option>
+                {{-- <option value="2">Tata Tertib</option> --}}
+                {{-- @foreach ($bidangs as $bidang)
                     <option value="{{ $bidang->id }}">{{ $bidang->nama }}</option>
-                @endforeach
+                @endforeach --}}
             </select>
         </div>
         <div class="mb-3">
@@ -51,3 +53,4 @@
     </div>
 </section>
 @endsection
+
