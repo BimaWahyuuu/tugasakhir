@@ -23,7 +23,8 @@
         </div>
         <div class="mb-3">
             <label for="waka" class="form-label">Waka</label>
-            <select name="waka_id" id="" class="form-select form-control">
+            <select name="waka_id" id="waka" class="form-select form-control">
+                <option value="0">Pilih Waka</option>
                 @foreach ($wakas as $waka)
                     <option value="{{ $waka->id }}">{{ $waka->nama }}</option>
                 @endforeach
@@ -31,12 +32,8 @@
         </div>
         <div class="mb-3">
             <label for="bidang" class="form-label">Bidang</label>
-            <select name="bidang_id" id="" class="form-select form-control">
-                <option value="1">Keterlambatan</option>
-                {{-- <option value="2">Tata Tertib</option> --}}
-                {{-- @foreach ($bidangs as $bidang)
-                    <option value="{{ $bidang->id }}">{{ $bidang->nama }}</option>
-                @endforeach --}}
+            <select name="bidang_id" id="bidang" class="form-select form-control">
+                <option value="0">Pilih Bidang</option>
             </select>
         </div>
         <div class="mb-3">
@@ -52,5 +49,6 @@
             </form>
     </div>
 </section>
+<script src="{{ asset('js/front.js') }}"></script>
 @endsection
 

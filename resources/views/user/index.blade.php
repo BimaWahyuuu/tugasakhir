@@ -18,6 +18,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{{ asset ('landing/css/styles.css') }}" rel="stylesheet" />
         <link rel="stylesheet" href="{{ asset('css/landingstyle.css') }}">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     </head>
     <body id="page-top">
         <!-- Navigation-->

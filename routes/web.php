@@ -31,7 +31,6 @@ Route::get('/tiket', [LandingController::class, 'tiket'])->name('tiket');
 Route::get('/ceksaran', function(){
     return view('user.ceksaran');
 });
-Route::get('/bidangWaka/{$id}', [SaranController::class, 'bidangWaka'])->name('bidang.waka');
 Route::resource('/saran', SaranController::class);
 Route::get('/home', function(){
     return view('user.homepage');

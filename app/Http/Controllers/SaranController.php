@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Waka;
 use App\Models\Bidang;
 use App\Models\Saran;
+use Redirect,Response;
 
 class SaranController extends Controller
 {
@@ -74,7 +75,9 @@ class SaranController extends Controller
      */
     public function edit($id)
     {
-        //
+        $bidang = Bidang::where('waka_id',$id)->get();
+        return Response::json($bidang);
+        dd($bidang);
     }
 
     /**
@@ -98,8 +101,5 @@ class SaranController extends Controller
     public function destroy($id)
     {
         //
-    }
-    public function bidangWaka($id){
-        Bidang::where('waka_id',$id);
     }
 }
