@@ -12,7 +12,23 @@
             console.log(data);
           $('#nama').val(data.nama);
           $('#jabatan').val(data.jabatan);
+          console.log($('#edit-form'))
           $('#edit-form').attr('action', '/admin/waka/'+data.id);
+      })
+   });
+    $('body').on('click', '#userEdit', function () {
+        console.log("sucess")
+      var user_edit_id = $(this).data('id');
+      $.get('/admin/pengguna/'+ user_edit_id +'/edit', function (data) {
+            console.log(data.id);
+            $('#edit-prev-user-image').attr('src', 'http://127.0.0.1:8000/storage/'+data.foto);
+            $('#edit-user-name').val(data.name);
+            $('#edit-user-email').val(data.email);
+            $('#edit-user-status').html(data.status);
+            $('#edit-user-status').val(data.status);
+            console.log($('#edit-user-status'))
+            $('#edit-user-form').attr('action', '/admin/pengguna/'+data.id);
+            console.log($('#edit-user-form'))
       })
    });
   
@@ -87,4 +103,42 @@ $('#menus').on('click',function(event) {
         $('#'+a).removeClass('d-none')
     }   
 });
+
+const userFoto = document.getElementById('userFoto');
+const pPrev = document.getElementById('userPrev');
+const edPrev = document.getElementById('edit-prev-user-image');
+const edUsrImg = document.getElementById('edit-user-foto');
+console.log(edUsrImg);
+console.log(edPrev);
+
+userFoto.onchange = evt => {
+  const [file] = userFoto.files
+  if (file) {
+    pPrev.src = URL.createObjectURL(file)
+  }
+}
+edUsrImg.onchange = evt => {
+  const [file] = edUsrImg.files
+  if (file) {
+    edPrev.src = URL.createObjectURL(file)
+  }
+}
+// console.log(document.querySelectorAll('.btn-user'))
+
+$('#user-table').on('click', '.btn-user', function () {
+    console.log("halo")
+    var id_user = $(this).data('id');
+    $.get('/admin/pengguna/'+ id_user, function (data) {
+        // console.log(data);
+        $('#user-image').attr("src", "http://127.0.0.1:8000/storage/"+data.foto);
+        $('#user-name').val(data.name);
+        $('#user-email').val(data.email);
+        $('#user-status').val(data.role);
+    })
+});
+
+
+
+
+
 

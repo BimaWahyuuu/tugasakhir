@@ -92,6 +92,6 @@
     </div>
   </div>
 </div>
-	<script src="{{ asset('js/customScript.js') }}"></script>
+<script src="{{ asset('js/customScript.js') }}"></script>
 
 @endsection

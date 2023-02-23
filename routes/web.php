@@ -8,6 +8,7 @@ use App\Http\Controllers\WakaController;
 use App\Http\Controllers\BidangController;
 use App\Http\Controllers\PesanController;
 use App\Http\Controllers\SaranController;
+use App\Http\Controllers\PenggunaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,17 +58,18 @@ Route::post('/login', [LoginController::class, 'login'])->name('masuk.login')->m
 
 // <-----admin----->
 
-Route::get('/admin', [DashboardController::class, 'main']);
-Route::get('/admin/admin', [DashboardController::class, 'admin']);
+Route::get('/dashboard', [DashboardController::class, 'main']);
 
+// user/admin
+Route::resource('/admin/pengguna', PenggunaController::class);
 
 // waka
 Route::post('admin/waka/{waka_id}/hapus',[WakaController::class,'hapus'])->name('waka.hapus');
 Route::resource('/admin/waka', WakaController::class);
 
 // bidang
-Route::resource('/admin/bidang', BidangController::class);
 Route::get('admin/bidang/list/{waka_id}', [BidangController::class, 'list'])->name('bidang.list');
+Route::resource('/admin/bidang', BidangController::class);
 
 // pesan
 Route::get('/admin/pesan/histories',[PesanController::class,'histories'])->name('pesan.histories');

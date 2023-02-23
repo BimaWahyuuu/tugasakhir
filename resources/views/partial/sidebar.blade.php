@@ -18,10 +18,10 @@
         </a>
         <ul class="dropdown-menu">
           <li>
-            <a class="nav-link {{ (request()->is('admin')) ? 'aktif':'' }}" href="/admin">Status</a>
+            <a class="nav-link {{ (request()->is('dashboard')) ? 'aktif':'' }}" href="/dashboard">Status</a>
           </li>
           <li>
-            <a class="nav-link {{ (request()->is('admin/admin')) ? 'aktif':'' }}" href="/admin/admin">Admin</a>
+            <a class="nav-link {{ (request()->is('admin/pengguna')) ? 'aktif':'' }}" href="/admin/pengguna">Admin</a>
           </li>
         </ul>
       </li>
