@@ -44,12 +44,21 @@ class PenggunaController extends Controller
         // dd($request);
         $foto =  $request->file('foto')->store('images');
         // $user = User::create($request->all());
+        if ($request->role == "admin") {
+            print("halooo");
+            $jabatan = "admin";
+        }elseif ($request->role == "super admin") {
+            $jabatan = "super admin";
+        }else{
+            $jabatan = $request->jabatan;
+        }
         $user = User::create([
             "name" => $request->name,
             "email" => $request->email,
             "password" => bcrypt($request->password),
             "role" => $request->role,
-            "foto" => $foto
+            "foto" => $foto,
+            "jabatan" => $jabatan
         ]);
         return back()->with('create' ,"User baru $user->name berhasil dibuat dengan role $user->role");
     }
@@ -87,7 +96,7 @@ class PenggunaController extends Controller
      */
     public function update(Request $request, $id)
     {
-
+    // dd($request);
         $user = User::find($id);
         if ($request->foto != '') {
         $newfoto =  $request->file('foto')->store('images');
@@ -95,7 +104,17 @@ class PenggunaController extends Controller
         Storage::delete($oldfoto);
         $user->foto = $newfoto;
         }
-
+        if ($request->role == "admin") {
+        $jabatan = "admin";
+        // dd($user->jabatan);
+        }elseif ($request->role == "super admin") {
+            $jabatan = "super admin";
+        }else{
+            $jabatan = $request->jabatan;
+        }
+        // dump($request);
+        // dd($jabatan);
+        $user->jabatan = $jabatan;
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);

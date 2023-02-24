@@ -42,16 +42,20 @@
                   <div class="badge badge-success">Admin</div>
                 @elseif ($user->role == "waka")
                   <div class="badge badge-primary">Waka</div>
+                @elseif($user->role == "super admin")
+                  <div class="badge badge-danger">Super Admin</div>
                 @endif
               </td>
               <td >
                 <button class="btn btn-secondary btn-user" id="userDetail" data-bs-toggle="modal" data-bs-target="#showModal" data-id="{{$user->id}}">Detail</button>
-                <button class="btn btn-warning" id="userEdit" data-bs-toggle="modal" data-bs-target="#editModal" data-id="{{$user->id}}">Edit</button>
-                <form class="d-inline" action="{{ route('pengguna.destroy',$user->id) }}" method="post">
-                  @csrf
-                  @method('DELETE')
-                  <button type="submit" class="btn-danger btn">Delete</button>
-                </form>
+                @if (Auth::user()->jabatan == "super admin")
+                  <button class="btn btn-warning" id="userEdit" data-bs-toggle="modal" data-bs-target="#editModal" data-id="{{$user->id}}">Edit</button>
+                  <form class="d-inline" action="{{ route('pengguna.destroy',$user->id) }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn-danger btn">Delete</button>
+                  </form>
+                @endif
               </td>
             <tr/>
             @endforeach
@@ -107,10 +111,11 @@
             </div>
             <div class="col-6">
               <label for="edit-user-status">Status</label>
-              <select name="role" class="form-select input-group-text" >
-                <option value="" id="edit-user-status" selected>Pilih Status Baru</option>
+              <select name="role" class="form-select input-group-text" id="edit-user-status">
+                <option id="edit-user-status" selected>Pilih Status Baru</option>
                 <option value="admin">Admin</option>
                 <option value="waka" id="waka">Waka</option>
+                <option value="super admin">Super Admin</option>
               </select>
             </div>
             <div class="col-6">
@@ -121,8 +126,9 @@
               <label for="edit-user-password">Password</label>
               <input type="password"  class="form-control my-1"  name="password" value="">
             </div>
-            <div class="col-6">
-              <select name="jabatan" class="form-select input-group-text" id="wakaList">
+            <div class="col-6 d-none" id="edit-waka">
+              <label for="editWaka" class="col-form-label d-none">Pilih Waka</label>
+              <select name="jabatan" class="form-select input-group-text" id="editWaka">
                 <option value="">Pilih Waka</option>
                 @foreach ($wakas as $waka)
                   <option value="{{$waka->jabatan}}">{{$waka->jabatan}}</option>
@@ -159,6 +165,7 @@
             <select name="role" id="sel-Stat" class="form-select input-group-text">
               <option value="admin">Admin</option>
               <option value="waka">Waka</option>
+              <option value="super admin">Super Admin</option>
             </select>
           </div>
           <div class="mb-3 col-6">
@@ -168,6 +175,15 @@
           <div class="mb-3 col-6">
             <label for="recipient-name" class="col-form-label">Password</label>
             <input autocomplete="off" name="password" type="password" class="form-control" value="">
+          </div>
+          <div class="col-6 d-none" id="wakaList">
+            <label for="wakaL" class="col-form-label">Pilih Waka</label>
+            <select name="jabatan" class="form-select input-group-text" id="wakaL">
+              <option value="">Pilih Waka</option>
+              @foreach ($wakas as $waka)
+                <option value="{{$waka->jabatan}}">{{$waka->jabatan}}</option>
+              @endforeach
+            </select>
           </div>
           <div class="col-5">
             <label for="useroto"  class="col-form-label">foto</label>

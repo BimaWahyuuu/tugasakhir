@@ -2,8 +2,12 @@
 	<div class="row justify-content-center text-center">
 		{{-- <h1 class="text-secondary fw-bold">data kosong, buat data dahulu</h1> --}}
 		<img src="{{ asset('img/kosong.png') }}"  class="mt-5 logo-kosong"  alt="{{ asset('img/kosong.png') }}">
-		<h1 class="text-black fw-bold">Data Kosong Silahkan Buat Data</h1>
-		<div class="p-2 ms-auto"><a href="/admin/bidang/create" class="btn btn-success  px-5">Tambah Data</a></div>
+		@if (Auth::user()->jabatan == 'admin' || Auth::user()->jabatan == 'super admin')
+			<h1 class="text-black fw-bold">Data Kosong Silahkan Buat Data</h1>
+			<div class="p-2 ms-auto"><a href="/admin/bidang/create" class="btn btn-success  px-5">Tambah Data</a></div>
+		@else 
+			<h1 class="text-black fw-bold">Data Kosong hubungi Admin</h1>
+		@endif
 	</div>
 @else
 	{{-- <div class="card-header">

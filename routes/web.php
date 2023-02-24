@@ -50,15 +50,15 @@ Route::get('/tentangkami', function(){
 // Route::get('/tiket', [LandingController::class, 'tiket'])->name('tiket');
 
 // <-----auth----->
-Route::view('/login', 'auth.parent');
-Route::get('/login', [LoginController::class, 'main'])->name('masuk')->middleware('guest');
-Route::post('/login', [LoginController::class, 'login'])->name('masuk.login')->middleware('guest');
+Route::get('/login', [LoginController::class, 'main'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'login'])->name('login.login')->middleware('guest');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
 
 // <-----endauth----->
 
 // <-----admin----->
 
-Route::get('/dashboard', [DashboardController::class, 'main']);
+Route::get('/dashboard', [DashboardController::class, 'main'])->middleware('auth');
 
 // user/admin
 Route::resource('/admin/pengguna', PenggunaController::class);

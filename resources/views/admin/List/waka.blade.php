@@ -5,9 +5,11 @@
 @endsection
 @section('contentTitle', 'List Waka')
 @section('content')
-<div class="d-flex mb-3">
+@if (Auth::user()->jabatan == 'admin' || Auth::user()->jabatan == 'super admin')
+	<div class="d-flex mb-3">
   <div class="p-2 ms-auto"><a href="/admin/waka/create" class="btn btn-success  px-5">Tambah Data</a></div>
-</div>
+	</div>
+@endif
 @if (session('status'))
     <div class="alert alert-success">
         {{ session('status') }}
@@ -17,8 +19,12 @@
 	<div class="row justify-content-center text-center">
 		{{-- <h1 class="text-secondary fw-bold">data kosong, buat data dahulu</h1> --}}
 		<img src="{{ asset('img/kosong.png') }}"  class="logo-kosong"  alt="{{ asset('img/kosong.png') }}">
-		<h1 class="text-black fw-bold">Data Kosong Silahkan Buat Data</h1>
-		<div class="p-2 ms-auto"><a href="/admin/waka/create" class="btn btn-success  px-5">Tambah Data</a></div>
+		@if (Auth::user()->jabatan == 'admin' || Auth::user()->jabatan == 'super admin')
+			<h1 class="text-black fw-bold">Data Kosong Silahkan Buat Data</h1>
+			<div class="p-2 ms-auto"><a href="/admin/waka/create" class="btn btn-success  px-5">Tambah Data</a></div>
+		@else
+			<h1 class="text-black fw-bold">Data Kosong Hubungi Admin</h1>
+		@endif
 	</div>
 @else
 	<div class="row">

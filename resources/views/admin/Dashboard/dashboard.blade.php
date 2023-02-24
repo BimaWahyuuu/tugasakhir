@@ -19,7 +19,8 @@
 @endsection
 @section('contentTitle', 'Dashboard')
 @section('content')
-<h2 class="section-title">Jumlah Pesan Masuk</h2>
+
+<h2 class="section-title">{{Auth::user()->jabatan}}</h2>
 <p class="section-lead">Jumlah Pesan masuk dihitung dari tiap waka</p>
 <div class="row">
   <div class="col-lg-3 col-md-6 col-sm-6 col-12">

@@ -137,7 +137,26 @@ $('#user-table').on('click', '.btn-user', function () {
     })
 });
 
-
+$('#sel-Stat').change(function(){
+    var seltxt = $(this).find(':selected').text()
+    console.log(seltxt)
+    if (seltxt == "Waka") {
+        $('#edit-waka').removeClass("d-none");
+        console.log($('#edit-waka'))
+    }else{
+        $('#edit-waka').addClass("d-none");
+    }
+});
+$('#edit-user-status').change(function(){
+    var seltxt = $(this).find(':selected').text()
+    console.log(seltxt)
+    if (seltxt == "Waka") {
+        $('#edit-waka').removeClass("d-none");
+        console.log($('#edit-waka'))
+    }else{
+        $('#edit-waka').addClass("d-none");
+    }
+});
 
 
 

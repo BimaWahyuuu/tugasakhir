@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="col-lg-10 col-lg-offset-1 col-lg-offset-right-1 col-md-10 col-md-offset-1 col-md-offset-right-1 col-sm-12 col-xs-12 pull-right ">
-            <button class="btn lt-register-btn">login <i class="icon-right "></i></button>
+            <button class="btn lt-register-btn" type="submit">login <i class="icon-right "></i></button>
         </div>
         <div class="mt-5col-lg-10 col-lg-offset-1 col-lg-offset-right-1 col-md-10 col-md-offset-1 col-md-offset-right-1 col-sm-12 col-xs-12 pull-right">
            <div class="row mt-5">

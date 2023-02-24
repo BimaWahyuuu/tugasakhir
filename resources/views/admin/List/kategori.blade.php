@@ -7,7 +7,7 @@
 @section('content')
 @include('partial.alert')
 <div class="row">
-	<div class="col-12 col-sm-12 col-lg-5">
+	<div class="col-lg-6">
 		<div class="card">
 			<div class="card-body">
 				<table class="table-responsive table table-stripped-colums">
@@ -24,11 +24,13 @@
 							<td>{{$i}}</td>
 							<td>{{$waka->nama}}</td>
 							<td class="">
-								<a href="{{ route('bidang.edit', $waka->id)}}" onclick="showAll({{$waka->id}})" 
-								class="btn-warning btn icon-warning icon-left">
-									<i class="fas fa-tools"></i>
-									edit
-								</a>
+								@if (Auth::user()->jabatan == 'admin' || Auth::user()->jabatan == 'super admin')
+									<a href="{{ route('bidang.edit', $waka->id)}}" onclick="showAll({{$waka->id}})" 
+									class="btn-warning btn icon-warning icon-left">
+										<i class="fas fa-tools"></i>
+										edit
+									</a>
+								@endif
 								<button onclick="showAll({{$waka->id}})" 
 								class="d-inline-block btn-primary btn icon-primary icon-left">
 									<i class="fas fa-eye"></i>
@@ -42,7 +44,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-12 col-sm-12 col-lg-7">
+	<div class="col-lg-6">
 		<div class="card" id="items" >
 			
 		</div>	
